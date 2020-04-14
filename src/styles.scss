@@ -1,0 +1,249 @@
+$redColor: #ff0000;
+
+* {
+  font-family: "Press Start 2P";
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* CONTAINER APP */
+.contaner_components {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  left: 2.5vw;
+  top: 2.5vh;
+  width: 95vw;
+  height: 95vh;
+  background-color: $redColor;
+  font-size: 1em;
+  margin-bottom: 1em;
+}
+
+/* FILTTERS */
+.filters {
+  width: 40%;
+  height: 100%;
+  margin-bottom: 5em;
+
+  .option-select {
+    max-width: 50px !important;
+    max-height: 50px;
+  }
+  .select_type {
+    margin-top: 2em;
+  }
+
+  .btn--filt {
+    margin-top: 4em;
+    width: 99%;
+  }
+}
+// LISTA POKEMONÓW
+.container_display-pokemon-list {
+  margin-top: 5em;
+  height: 100%;
+  width: 50%;
+
+  .pokemon-list {
+    top: 2em;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 80%;
+  }
+  .list-item {
+    width: 100%;
+    margin-top: 1em;
+    text-transform: capitalize;
+  }
+
+  .pagination_holder {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3em;
+
+    .btn-next-page {
+      width: 10em;
+    }
+    .btn-previous-page {
+      width: 10em;
+    }
+  }
+}
+
+/* ZASŁONA NA MODAL W TLE */
+.blank_cover {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 500vh;
+  width: 100vw;
+  z-index: -1;
+  background-color: white;
+}
+
+/* WYŚWIETLANY MODAL */
+
+.pokemon_info_holder {
+  position: fixed;
+  overflow-x: scroll;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  background-color: white;
+  justify-content: center;
+
+  .pokemon-info-holder {
+    margin-top: 1em;
+    width: 50%;
+  }
+  .img_holder {
+    margin-top: 2em;
+    text-align: center;
+    text-transform: capitalize;
+  }
+  .pokemon-image {
+    height: 15em;
+  }
+
+  .info-holder {
+    width: 50%;
+    justify-self: center;
+    margin-left: auto;
+    margin-right: auto;
+    text-transform: capitalize;
+    p {
+      margin-top: 1em;
+    }
+  }
+}
+
+.pokemon_info_not_holder {
+  position: fixed;
+  overflow-x: scroll;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -10;
+  background-color: white;
+  justify-content: center;
+}
+.close-display {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+/* BREAK POINTS */
+/* Smartphones (portrait and landscape) ----------- */
+// @media only screen and (min-width: 320px) and (max-width: 480px) {
+//   /* Styles */
+// }
+
+/* Smartphones (landscape) ----------- */
+@media only screen and (min-width: 319px) and (max-width: 768px) {
+  .contaner_components {
+    flex-wrap: wrap;
+    height: fit-content;
+  }
+  .filters {
+    width: 100vw;
+  }
+
+  .container_display-pokemon-list {
+    font-size: 0.8em;
+    word-wrap: break-word;
+    width: 75vw;
+
+    .pokemon-list {
+      max-height: 60vh;
+    }
+  }
+
+  .pokemon_info_holder {
+    .pokemon_img_holder {
+      margin-top: 0em;
+    }
+    .pokemon-image {
+      height: 10em;
+    }
+    .info-holder {
+      width: 90%;
+    }
+  }
+
+  .spacer {
+    margin: 1em;
+  }
+}
+
+/* Smartphones (portrait) ----------- */
+// @media only screen and (max-width: 320px) {
+//   /* Styles */
+// }
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  /* Styles */
+  .contaner_components {
+    flex-wrap: wrap;
+    height: fit-content;
+  }
+
+  .filters {
+    width: 100vw;
+  }
+
+  .container_display-pokemon-list {
+    font-size: 0.8em;
+    word-wrap: break-word;
+    width: 88vw;
+  }
+  .pokemon_img_holder {
+    margin-top: 1em;
+    height: 50%;
+  }
+  .spacer {
+    margin: 1em;
+  }
+}
+
+/* iPads (landscape) ----------- */
+// @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+//   /* Styles */
+// }
+
+/* iPads (portrait) ----------- */
+@media only screen and (min-width: 1024px) and (max-width: 1224px) and (orientation: portrait) {
+  /* Styles */
+  .container_display-pokemon-list {
+    font-size: 0.8em;
+    word-wrap: break-word;
+    width: 100vw;
+
+    .pokemon-list {
+      max-height: 60vh;
+    }
+  }
+}
+
+// /* Desktops and laptops ----------- */
+// @media only screen and (min-width: 1224px) {
+//   /* Styles */
+// }
+
+// /* Large screens ----------- */
+// @media only screen and (min-width: 1824px) {
+//   /* Styles */
+// }
+
+// /* iPhone 4 ----------- */
+// @media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+//   only screen and (min-device-pixel-ratio: 1.5) {
+//   /* Styles */
+// }

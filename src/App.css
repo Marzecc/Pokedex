@@ -1,0 +1,310 @@
+:root {
+    --red-color: #ff0000;
+    --yellow-color: #ffde00;
+    --blue-color: #3b4cca;
+  }
+
+* {
+    font-family: 'Press Start 2P';
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    overflow-x: none;
+}
+
+/* CONTAINER APP */
+.contaner_components {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    left: 2.5vw;
+    top: 2.5vh;
+    width: 95vw;
+    height: 95vh;
+    background-color: var(--red-color);
+    font-size: 1em; 
+}
+/* FILTTERS */
+.filters{
+    width: 40%;
+    margin-bottom: 5em;
+}
+.option-select{
+    max-width: 50px !important;
+    
+}
+.select_type{
+    margin-top:2em;
+}
+
+.btn--filt{
+    margin-top: 4em;
+    width: 99%;
+}
+
+.container_display-pokemon-list{
+    margin-top: 5em;
+    width: 50%;
+}
+
+.pokemon-list{
+    top: 2em;
+    overflow-y:auto;
+    overflow-x: hidden;
+    max-height: 80%;
+}
+.list-item {
+    width: 100%;   
+}
+
+.pagination_holder{
+    display: flex;
+    justify-content:space-between;
+    margin-top: 5em;
+}
+
+.btn-next-page{
+    width: 10em;
+}
+.btn-previous-page{
+    width: 10em;
+
+}
+.spacer{
+    align-self: flex-end
+}
+
+
+
+/* ZASŁONA NA MODAL W TLE */
+.blank_cover{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 500vh;
+    width: 100vw;
+    z-index: -1;
+    background-color: white;
+}
+
+/* WYŚWIETLANY MODAL */
+.pokemon_info_holder{
+    position: fixed;
+    overflow-x: scroll;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -10;
+    background-color: white;
+}
+.pokemon_img_holder {
+    margin-top: 5em;
+    height: 30%;
+}
+.display-image{
+    margin-top: 1em;
+    margin-left: 25%;
+    width: 50%;
+    height: 100%;
+    background-color: red;
+}
+.nes-progress{
+    margin-left: 5%;
+    width: 90%;
+    height: 1em;
+}
+.label-name{
+    margin-left: 5%;
+}
+.close-display{ 
+  margin-top: 1em;
+  margin-bottom: 1em;
+  left: 50%;
+  transform: translate(-50%,0);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* BREAK POINTS */
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen
+and (min-width : 320px)
+and (max-width : 480px) {
+
+    .contaner_components {
+        display: flex;
+        flex-wrap: wrap;
+        
+        left: 2.5vw;
+        top: 2.5vh;
+        width: 95vw;
+        height: fit-content;
+        background-color: var(--red-color);
+        font-size: 1em;
+
+        
+        
+    }
+    
+
+    .container_display-pokemon-list{
+        font-size: 0.8em;
+        word-wrap: break-word;
+        width: 75vw;
+    }
+    .pagination_holder{
+        display: flex;
+        justify-content:center;
+        margin-top: 5em;
+    }
+    
+    
+/* Styles */
+}
+
+/* Smartphones (landscape) ----------- */
+@media only screen
+and (min-width : 321px)
+and (max-width : 768px) {
+    .contaner_components {
+        display: flex;
+        flex-wrap: wrap;
+        left: 2.5vw;
+        top: 2.5vh;
+        width: 95vw;
+        height: fit-content;
+        background-color: var(--red-color);
+        font-size: 1em;
+        
+    }
+    .filters{
+        width: 100vw;
+    }
+
+    .container_display-pokemon-list{
+        font-size: 0.8em;
+        word-wrap: break-word;
+        width: 75vw;
+    }
+    .pagination_holder{
+        display: flex;
+        justify-content:center;
+        margin-top: 5em;
+    }
+    
+    .pokemon_img_holder {
+        margin-top: 2em;
+        height: 30%;
+    }
+
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen
+and (max-width : 320px) {
+
+ 
+    
+/* Styles */
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen
+and (min-width : 768px)
+and (max-width : 1024px) {
+/* Styles */
+.contaner_components {
+    display: flex;
+    flex-wrap: wrap;
+    
+    left: 2.5vw;
+    top: 2.5vh;
+    width: 95vw;
+    height: fit-content;
+    background-color: var(--red-color);
+    font-size: 1em;
+    
+}
+.filters{
+    width: 100vw;
+}
+
+.container_display-pokemon-list{
+    font-size: 0.8em;
+    word-wrap: break-word;
+    width: 88vw;
+}
+.pagination_holder{
+    display: flex;
+    justify-content:center;
+    margin-top: 5em;
+}
+
+.pokemon_img_holder {
+    margin-top: 2em;
+    height: 50%;
+}
+
+.option-select{
+    max-width: 50px !important;
+    
+}
+#id  option {
+    max-width: 30px;
+    min-width: 30px;
+    width: 30px !important;
+}
+
+}
+
+/* iPads (landscape) ----------- */
+@media only screen
+and (min-width : 768px)
+and (max-width : 1024px)
+and (orientation : landscape) {
+/* Styles */
+}
+
+/* iPads (portrait) ----------- */
+@media only screen
+and (min-width : 768px)
+and (max-width : 1024px)
+and (orientation : portrait) {
+/* Styles */
+}
+
+/* Desktops and laptops ----------- */
+@media only screen
+and (min-width : 1224px) {
+/* Styles */
+}
+
+/* Large screens ----------- */
+@media only screen
+and (min-width : 1824px) {
+/* Styles */
+}
+
+/* iPhone 4 ----------- */
+@media
+only screen and (-webkit-min-device-pixel-ratio : 1.5),
+only screen and (min-device-pixel-ratio : 1.5) {
+/* Styles */
+}
