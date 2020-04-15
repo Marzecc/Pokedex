@@ -1,7 +1,6 @@
 import React from "react";
 import { PokemonShortInfo } from "../../Model";
 
-// chciałbym aby kliknięcie w pokemona
 
 export function ListItem(
   pokeInfo: PokemonShortInfo,
@@ -13,7 +12,6 @@ export function ListItem(
       type="button"
       value={pokeInfo.name}
       className="nes-btn is-primary list-item"
-      // "_" = argument przyjmujemy, ale nie jest wykorzystany (pomocnicze)
       onClick={(_) => onButtonClick(pokeInfo)}
     >
       {pokeInfo.name}

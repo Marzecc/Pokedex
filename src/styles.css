@@ -1,4 +1,3 @@
-@charset "UTF-8";
 * {
   font-family: "Press Start 2P";
   margin: 0;
@@ -7,7 +6,7 @@
 }
 
 /* CONTAINER APP */
-.contaner_components {
+.contaner-components {
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-around;
@@ -27,93 +26,81 @@
   margin-bottom: 5em;
 }
 
-.filters .option-select {
-  max-width: 50px !important;
-  max-height: 50px;
-}
-
-.filters .select_type {
+.select-type {
   margin-top: 2em;
 }
 
-.filters .btn--filt {
+.btn-filter {
   margin-top: 4em;
   width: 99%;
 }
 
-.container_display-pokemon-list {
+.container-list {
   margin-top: 5em;
   height: 100%;
   width: 50%;
 }
 
-.container_display-pokemon-list .pokemon-list {
+.list {
   top: 2em;
   overflow-y: auto;
   overflow-x: hidden;
   max-height: 80%;
 }
 
-.container_display-pokemon-list .list-item {
+.list-item {
   width: 100%;
-  margin-top: 1em;
+  margin-top: 0.5em;
   text-transform: capitalize;
 }
 
-.container_display-pokemon-list .pagination_holder {
+.pagination-holder {
   display: flex;
   justify-content: space-between;
   margin-top: 3em;
 }
 
-.container_display-pokemon-list .pagination_holder .btn-next-page {
+.btn-pagination {
   width: 10em;
 }
 
-.container_display-pokemon-list .pagination_holder .btn-previous-page {
-  width: 10em;
-}
-
-/* ZASŁONA NA MODAL W TLE */
-.blank_cover {
+/* COVER OF DISPLAY */
+.blank-cover {
   position: fixed;
   top: 0;
   left: 0;
   height: 500vh;
   width: 100vw;
   z-index: -1;
-  background-color: white;
+  background-color: #FFFFFF;
 }
 
-/* WYŚWIETLANY MODAL */
-.pokemon_info_holder {
+/* DISPLAY  */
+.info-visible {
   position: fixed;
   overflow-x: scroll;
   top: 0;
   left: 0;
   height: 100%;
+  max-height: 100%;
+  width: 50%;
   width: 100%;
   z-index: 10;
-  background-color: white;
+  background-color: #FFFFFF;
   justify-content: center;
 }
 
-.pokemon_info_holder .pokemon-info-holder {
-  margin-top: 1em;
-  width: 50%;
-}
-
-.pokemon_info_holder .img_holder {
+.info-image-holder {
   margin-top: 2em;
   text-align: center;
   text-transform: capitalize;
 }
 
-.pokemon_info_holder .pokemon-image {
+.info-image {
   height: 15em;
 }
 
-.pokemon_info_holder .info-holder {
+.info-stats {
   width: 50%;
   justify-self: center;
   margin-left: auto;
@@ -121,11 +108,11 @@
   text-transform: capitalize;
 }
 
-.pokemon_info_holder .info-holder p {
+.info-stats .stat {
   margin-top: 1em;
 }
 
-.pokemon_info_not_holder {
+.info-hidden {
   position: fixed;
   overflow-x: scroll;
   top: 0;
@@ -133,7 +120,7 @@
   height: 100%;
   width: 100%;
   z-index: -10;
-  background-color: white;
+  background-color: #FFFFFF;
   justify-content: center;
 }
 
@@ -144,56 +131,56 @@
   transform: translate(-50%, 0);
 }
 
-/* BREAK POINTS */
-/* Smartphones (portrait and landscape) ----------- */
-/* Smartphones (landscape) ----------- */
 @media only screen and (min-width: 319px) and (max-width: 768px) {
-  .contaner_components {
+  .contaner-components {
     flex-wrap: wrap;
     height: fit-content;
   }
   .filters {
     width: 100vw;
   }
-  .container_display-pokemon-list {
-    font-size: 0.8em;
+  .container-list {
+    font-size: 0.7em;
     word-wrap: break-word;
     width: 75vw;
   }
-  .container_display-pokemon-list .pokemon-list {
+  .list {
     max-height: 60vh;
   }
-  .pokemon_info_holder .pokemon_img_holder {
-    margin-top: 0em;
+  .info-image-holder {
+    margin-top: 1em;
   }
-  .pokemon_info_holder .pokemon-image {
+  .info-image {
     height: 10em;
   }
-  .pokemon_info_holder .info-holder {
+  .info-stats {
     width: 90%;
   }
   .spacer {
     margin: 1em;
   }
+  .btn-pagination {
+    word-wrap: normal;
+  }
 }
 
-/* Smartphones (portrait) ----------- */
-/* iPads (portrait and landscape) ----------- */
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
-  /* Styles */
-  .contaner_components {
+  .contaner-components {
     flex-wrap: wrap;
     height: fit-content;
   }
   .filters {
     width: 100vw;
   }
-  .container_display-pokemon-list {
+  .container-list {
     font-size: 0.8em;
     word-wrap: break-word;
     width: 88vw;
   }
-  .pokemon_img_holder {
+  .list {
+    max-height: 60vh;
+  }
+  .info-image-holder {
     margin-top: 1em;
     height: 50%;
   }
@@ -202,16 +189,13 @@
   }
 }
 
-/* iPads (landscape) ----------- */
-/* iPads (portrait) ----------- */
 @media only screen and (min-width: 1024px) and (max-width: 1224px) and (orientation: portrait) {
-  /* Styles */
-  .container_display-pokemon-list {
+  .container-list {
     font-size: 0.8em;
     word-wrap: break-word;
     width: 100vw;
   }
-  .container_display-pokemon-list .pokemon-list {
+  .list {
     max-height: 60vh;
   }
 }
