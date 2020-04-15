@@ -7,12 +7,11 @@ import {
 } from "../../Model";
 
 /* pokemon detail display */
-
 export function PokemonDetailsInfo(
   displayedPokemon: PokemonDetails,
   onCloseClicked: () => void
 ) {
-  //
+  // 
   function imageForPokemon(pokemonImage: PokemonImage | undefined): string {
     return pokemonImage?.front_default === null ||
       pokemonImage?.front_default === undefined

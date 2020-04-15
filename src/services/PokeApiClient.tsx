@@ -6,7 +6,7 @@ import {
 } from "../Model";
 import axios, { AxiosResponse } from "axios";
 
-function getFromUrl<T>(url: string): Promise<T> {
+export function getFromUrl<T>(url: string): Promise<T> {
   return axios.get<T>(url).then((response: AxiosResponse<T>) => {
     return response.data;
   });

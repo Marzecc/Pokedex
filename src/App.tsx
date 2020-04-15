@@ -5,6 +5,7 @@ import {
   getPokemonType,
   getFilteredPokemons,
   getDisplayedPokemon,
+  getFromUrl,
 } from "./services/PokeApiClient";
 
 import {
@@ -13,14 +14,15 @@ import {
   TypePage,
   FilteredPokemons,
   PokemonDetails,
-  PokemonImage,
-  PokemonStats,
-  StatName,
+
 } from "./Model";
 
 import ListItem from "./components/listItem/ListItem";
 import FilterOption from "./components/listFilter/FilterOption";
 import { PokemonDetailsInfo } from "./components/pokemonDetails/PokemonDetailsInfo";
+const INITIAL_URL: string = "https://pokeapi.co/api/v2/pokemon";
+const TYPE_URL: string = "https://pokeapi.co/api/v2/type";
+const LIMIT = 20;
 
 function App() {
   const [allPokemon, setAllPokemon] = useState<PokemonPage | null>(null);
@@ -32,24 +34,14 @@ function App() {
   const [filteredPokemons, setFilteredPokemons] = useState<
     Array<PokemonShortInfo>
   >([]);
-
-  const [displayVisible, setDisplayVisible] = useState<
-    "info-hidden" | "info-visible"
-  >("info-hidden");
-
   const [
     displayedPokemon,
     setDisplayedPokemon,
   ] = useState<PokemonDetails | null>(null);
+  const [offset, setOffset] = useState<number>(0);
+  
 
-  const INITIAL_URL: string = "https://pokeapi.co/api/v2/pokemon";
-  const TYPE_URL: string = "https://pokeapi.co/api/v2/type";
-  let [offset, setOffset] = useState<number>(0);
-  const LIMIT = 20;
-
-  //  BEFORE USER INTERACTION
-
-  // fetching visible pokemons 0
+  // fetching visible pokemons 
   async function fetchData(url?: string) {
     if (!url) {
       return;
@@ -74,10 +66,8 @@ function App() {
   // featching data while rendering
   useEffect(() => {
     fetchPokemonType(TYPE_URL);
-    fetchData(getPokemonPaginateLink(offset, LIMIT));
+    fetchData(getPokemonPaginateLink(0, LIMIT));
   }, []);
-
-  // POKEMON LIST / FILTER OPTION
 
   // chcecking if filter is active
   function isFilterActive(): boolean {
@@ -95,7 +85,8 @@ function App() {
 
   // fetching pokemons if filter is not active
   function fetchAllPokemons() {
-    getAllPokemon(getPokemonPaginateLink(offset, LIMIT))
+    setOffset(0);
+    getAllPokemon(getPokemonPaginateLink(0, LIMIT))
       .then((allPokemon: PokemonPage) => {
         let allPokemons: Array<PokemonShortInfo> = allPokemon.results;
         setVisiblePokemon(allPokemons);
@@ -119,25 +110,16 @@ function App() {
 
   // function that return link with current offset i limit (for unfiltered Pokemons)
   function getPokemonPaginateLink(offset: number, LIMIT: number): string {
-    return (
-      "https://pokeapi.co/api/v2/pokemon?offset=" + offset + "&limit=" + LIMIT
-    );
+    return "https://pokeapi.co/api/v2/pokemon?offset=" + offset + "&limit=" + LIMIT ;
   }
+
   function pokemonButtonClicked(pokemonShortInfo: PokemonShortInfo) {
-    // fetchował potrzebne info pokemona z URL
-    // przypisywał je do displayedPokemon
-    // Zmieniał z index kontenera
-    getDisplayedPokemon(INITIAL_URL + "/" + pokemonShortInfo.name).then(
+    getFromUrl<PokemonDetails>(INITIAL_URL + "/" + pokemonShortInfo.name).then(
       (displayedPokes: PokemonDetails) => {
         setDisplayedPokemon(displayedPokes);
-        setDisplayVisible("info-visible");
       }
     );
   }
-  // creating const to use in JSX
-  const filterOption = availableTypes?.results.map(FilterOption);
-
-  // PAGINATION
 
   // pagination previous depending on active filter
   function previousPage() {
@@ -153,7 +135,7 @@ function App() {
     if (offset === 0) {
       return;
     }
-    let newOffset = (offset -= LIMIT);
+    let newOffset = (offset - LIMIT);
     setOffset(newOffset);
     const sliceVisiblePokemons = filteredPokemons.slice(offset, offset + LIMIT);
     setVisiblePokemon(sliceVisiblePokemons);
@@ -164,13 +146,10 @@ function App() {
     if (offset === 0) {
       return;
     }
-
-    let newOffset = (offset -= LIMIT);
+    let newOffset = (offset - LIMIT);
     setOffset(newOffset);
-
     getAllPokemon(getPokemonPaginateLink(newOffset, LIMIT))
       .then((allPokemon: PokemonPage) => {
-        // let allPokemons : Array<PokemonShortInfo> = ;
         setVisiblePokemon(allPokemon.results);
       })
       .catch((reason: any) => alertFetchFail(reason));
@@ -190,7 +169,7 @@ function App() {
     if (filteredPokemons.length <= offset + LIMIT) {
       return;
     }
-    let newOffset = (offset += LIMIT);
+    let newOffset = (offset + LIMIT);
     setOffset(newOffset);
     const sliceVisiblePokemons = filteredPokemons.slice(offset, offset + LIMIT);
     setVisiblePokemon(sliceVisiblePokemons);
@@ -201,9 +180,8 @@ function App() {
     if (allPokemon == null || allPokemon.count <= offset + LIMIT) {
       return;
     }
-    let newOffset = (offset += LIMIT);
+    let newOffset = (offset + LIMIT);
     setOffset(newOffset);
-
     getAllPokemon(getPokemonPaginateLink(newOffset, LIMIT))
       .then((allPokemon: PokemonPage) => {
         let allPokemons: Array<PokemonShortInfo> = allPokemon.results;
@@ -213,10 +191,11 @@ function App() {
   }
 
   // asigning action to pokemon button
-  const listItem: Array<JSX.Element> = visiblePokemon.map((pokemon) =>
+  const listItems: Array<JSX.Element> = visiblePokemon.map((pokemon) =>
     ListItem(pokemon, pokemonButtonClicked)
   );
 
+  // pokemon detail display
   function pokemonDetailsInfo() { 
     if (displayedPokemon == null) {
       return     
@@ -231,7 +210,6 @@ function App() {
         {/* Pokemon Filters */}
         <div className="filters nes-container with-title  is-rounded">
           <p className="title"> FILTER POKEMONS </p>
-
           <label htmlFor="default_select" className="select-type">
             Filter by type
           </label>
@@ -245,7 +223,7 @@ function App() {
               }}
             >
               <option value="">No filter</option>
-              {filterOption}
+              {availableTypes?.results.map(FilterOption)}
             </select>
           </div>
           {/* Filter activating button */}
@@ -259,19 +237,15 @@ function App() {
             </button>
           </div>
         </div>
-
         {/* App icon */}
         <div className="spacer">
           <i className="nes-octocat animate"></i>
         </div>
-
         {/* container of pokemon list */}
         <div className="container-list nes-container with-title  is-rounded">
           <p className="title"> SEE MORE INFO </p>
-
           {/* list item */}
-          <div className=" list nes-container is-rounded ">{listItem}</div>
-
+          <div className=" list nes-container is-rounded ">{listItems}</div>
           {/* list pagintaion holder */}
           <div className="pagination-holder">
             <button
@@ -291,7 +265,6 @@ function App() {
           </div>
         </div>
               {pokemonDetailsInfo()}
-       
       </div>
     </div>
   );
