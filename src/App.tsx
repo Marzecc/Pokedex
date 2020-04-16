@@ -4,7 +4,6 @@ import {
   getAllPokemon,
   getPokemonType,
   getFilteredPokemons,
-  getDisplayedPokemon,
   getFromUrl,
 } from "./services/PokeApiClient";
 
@@ -264,7 +263,7 @@ function App() {
             </button>
           </div>
         </div>
-              {pokemonDetailsInfo()}
+        {pokemonDetailsInfo()}
       </div>
     </div>
   );

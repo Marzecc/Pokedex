@@ -5,7 +5,7 @@
   box-sizing: border-box;
 }
 
-/* CONTAINER APP */
+/* App container */
 .contaner-components {
   display: flex;
   flex-wrap: nowrap;
@@ -19,7 +19,7 @@
   margin-bottom: 1em;
 }
 
-/* FILTTERS */
+/* Filters */
 .filters {
   width: 40%;
   height: 100%;
@@ -35,6 +35,7 @@
   width: 99%;
 }
 
+/* Pokemon list */
 .container-list {
   margin-top: 5em;
   height: 100%;
@@ -64,19 +65,8 @@
   width: 10em;
 }
 
-/* COVER OF DISPLAY */
-.blank-cover {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 500vh;
-  width: 100vw;
-  z-index: -1;
-  background-color: #FFFFFF;
-}
-
-/* DISPLAY  */
-.info-visible {
+/* Displayed modal */
+.info-display {
   position: fixed;
   overflow-x: scroll;
   top: 0;
@@ -110,18 +100,6 @@
 
 .info-stats .stat {
   margin-top: 1em;
-}
-
-.info-hidden {
-  position: fixed;
-  overflow-x: scroll;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  z-index: -10;
-  background-color: #FFFFFF;
-  justify-content: center;
 }
 
 .close-display {

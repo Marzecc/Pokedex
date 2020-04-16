@@ -8,7 +8,7 @@ $whiteColor: #FFFFFF;
   box-sizing: border-box;
 }
 
-/* CONTAINER APP */
+/* App container */
 .contaner-components {
   display: flex;
   flex-wrap: nowrap;
@@ -22,7 +22,7 @@ $whiteColor: #FFFFFF;
   margin-bottom: 1em;
 }
 
-/* FILTTERS */
+/* Filters */
 .filters {
   width: 40%;
   height: 100%;
@@ -38,7 +38,7 @@ $whiteColor: #FFFFFF;
     width: 99%;
   }
 
-// POKEMON LIST
+/* Pokemon list */
 .container-list {
   margin-top: 5em;
   height: 100%;
@@ -66,21 +66,9 @@ $whiteColor: #FFFFFF;
   }
 
 
+/* Displayed modal */
 
-/* COVER OF DISPLAY */
-.blank-cover {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 500vh;
-  width: 100vw;
-  z-index: -1;
-  background-color: $whiteColor;
-}
-
-/* DISPLAY  */
-
-.info-visible {
+.info-display {
   position: fixed;
   overflow-x: scroll;
   top: 0;
@@ -114,18 +102,6 @@ $whiteColor: #FFFFFF;
     }
   }
 
-
-.info-hidden {
-  position: fixed;
-  overflow-x: scroll;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  z-index: -10;
-  background-color: $whiteColor;
-  justify-content: center;
-}
 .close-display {
   margin-top: 1em;
   margin-bottom: 1em;
@@ -133,7 +109,7 @@ $whiteColor: #FFFFFF;
   transform: translate(-50%, 0);
 }
 
-//  
+//  MEDIA QUERTY 
 
 @media only screen and (min-width: 319px) and (max-width: 768px) {
   .contaner-components {

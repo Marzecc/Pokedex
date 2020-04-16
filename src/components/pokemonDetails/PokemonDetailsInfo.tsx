@@ -26,7 +26,7 @@ export function PokemonDetailsInfo(
   }
 
   return (
-    <div className="info-visible">
+    <div className="info-display">
       <div className="info-image-holder">
         <h1> {displayedPokemon?.name} </h1>
         <img

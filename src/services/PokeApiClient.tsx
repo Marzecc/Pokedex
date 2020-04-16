@@ -23,7 +23,3 @@ export function getPokemonType(url: string): Promise<TypePage> {
 export function getFilteredPokemons(url: string): Promise<FilteredPokemons> {
   return getFromUrl<FilteredPokemons>(url);
 }
-
-export function getDisplayedPokemon(url: string): Promise<PokemonDetails> {
-  return getFromUrl<PokemonDetails>(url);
-}
