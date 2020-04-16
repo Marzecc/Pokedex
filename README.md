@@ -1,7 +1,7 @@
 <h1> Pokedex App </h1>
-Aplication created as requitment task. 
+Application created as recruitment task. 
 
-## Aplication features:
+## Application features:
 * Pagination
 * Filtration of pokemon by their type (fire, water etc.)
 * Seeing details & image of choosen pokemon
