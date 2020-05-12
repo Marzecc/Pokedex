@@ -1,6 +1,5 @@
 <h1> Pokedex App </h1>
-Application uses data from pokeAPI and allows user to see all pokemons' names, filter them by their type and see details about choosen pokemon.
-Application created during recruitment process. 
+The application uses data from pokeAPI and allows users to see all pokemons' names, filter them by their type, and see details about chosen pokemon. Application created during the recruitment process.
 
 ## Application features:
 * Pagination
