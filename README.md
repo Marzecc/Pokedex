@@ -1,4 +1,4 @@
-<h1> Pokedex App </h1>
+## Pokedex App :octopus:
 The application uses data from pokeAPI and allows users to see all pokemons' names, filter them by their type, and see details about chosen pokemon. Application created during the recruitment process.
 See app: https://hubertmpokedex.netlify.app/
 
